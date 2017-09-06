@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:margin-top="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<style>
+	table {
+	    width = 100%;
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		color: red
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding-top: 8px;
+		padding-right: 25px;
+		padding-bottom: 8px;
+		padding-left: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+
+	h2.ex1 {
+        margin-top: 2cm;
+    }
+
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button.playerSubmit {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div.playerSubmission {
+        width: 32%;
+        float:left;
+        margin: 20px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    div.AuctionBoard {
+        width: 61%;
+        float:left;
+        margin: 20px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Jersey Shore Fantasy Football</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Rosters</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Budgets</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Players</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+			<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="ex1">Rosters</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+				<h1>Team 1</h1>
+                <table id="Roster1">
+					<tr>
+						<th>Player</th>
+						<th>Cost</th>
+						<th>Position</th>
+					</tr>
+				</table>
+            </div>
+            <div class="row">
+				<h1>Team 4</h1>
+                 <table>
+					<tr>
+					<th>Player</th>
+					<th>Cost</th>
+					<th>Position</th>
+					</tr>
+					<tr>
+					<td>Peyton Manning</td>
+					<td>50</td>
+					<td>QB</td>
+					</tr>
+				</table>
+            </div>
+			<div class="row">
+				<h1>Team 7</h1>
+                <table>
+					<tr>
+						<th>Player</th>
+						<th>Cost</th>
+						<th>Position</th>
+					</tr>
+					<tr>
+						<td>Peyton Manning</td>
+						<td>50</td>
+						<td>QB</td>
+					</tr>
+				</table>
+            </div>
+			<div class="row">
+				<h1>Team 10</h1>
+                <table>
+					<tr>
+						<th>Player</th>
+						<th>Cost</th>
+						<th>Position</th>
+					</tr>
+					<tr>
+						<td>Peyton Manning</td>
+						<td>50</td>
+						<td>QB</td>
+					</tr>
+				</table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budgets Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Budgets</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="Budget">
+                <table id="BudgetTable2">
+                    <tr>
+                        <th>Team</th>
+                        <th>Budget</th>
+                        <th>Max</th>
+                    </tr>
+                    <tr>
+                        <td>Team 1</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 2</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 3</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 4</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 5</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 6</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 7</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 8</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 9</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 10</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 11</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Team 12</td>
+                        <td>200</td>
+                        <td>180</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Current Player</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="playerSubmission">
+                    <label for="player">Player</label>
+                    <input type="text" id="player" placeholder="Enter Player">
+
+                    <label for="cost">Cost</label>
+                    <input type="text" id="cost" placeholder="Enter Cost">
+
+                    <label for="Team">Team</label>
+                    <input type="text" id="team" placeholder="Enter Team">
+
+                <button class="playerSubmit" onclick="getInfo()">Sold!</button>
+                </div>
+                <div class="AuctionBoard">
+                    <table id="BudgetTable">
+                        <tr>
+                            <th>Team</th>
+                            <th>Budget</th>
+                            <th>Max</th>
+                            <th># Players</th>
+                            <th>QB</th>
+                            <th>RB</th>
+                            <th>WR</th>
+                            <th>TE</th>
+                            <th>K</th>
+                            <th>DST</th>
+                        </tr>
+                        <tr>
+                            <td>Team 1</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 2</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 3</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 4</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 5</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 6</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 7</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 8</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 9</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 10</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 11</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Team 12</td>
+                            <td>200</td>
+                            <td>187</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <iframe src="https://open.spotify.com/embed/user/chaoaj/playlist/6OYL2rfNJj1w6KFlzaMs39" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/js/freelancer.js"></script>
+
+    <script>
+    maxPlayers = 14;
+
+    function getInfo() {
+        var player = document.getElementById("player").value;
+        var cost = document.getElementById("cost").value;
+        var team = document.getElementById("team").value;
+        updateBudget(cost, team);
+        addToRoster(cost, team, player);
+        clearPlayerInfo();
+    }
+
+    function updateBudget(cost, team) {
+        var MyRows = $('table#BudgetTable').find('tr');
+        for (var i = 0; i < MyRows.length; i++) {
+            var teamName = $(MyRows[i]).find('td:eq(0)').html();
+            if(teamName == team){
+                var x = document.getElementById("BudgetTable").rows[i].cells;
+                x[1].innerHTML = x[1].innerHTML - cost;
+                x[3].innerHTML = parseInt(x[3].innerHTML) + 1;
+                x[2].innerHTML = parseInt(x[1].innerHTML) - (maxPlayers - parseInt(x[3].innerHTML)) + 1;
+            }
+        }
+    }
+
+    function clearPlayerInfo(){
+        var player = document.getElementById("player").value = "";
+        var cost = document.getElementById("cost").value = "";
+        var team = document.getElementById("team").value = "";
+    }
+
+    function addToRoster(cost, team, player){
+        var table = document.getElementById("Roster1");
+
+        var row = table.insertRow(-1);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = player;
+        cell2.innerHTML = cost;
+        cell3.innerHTML = "QB";
+    }
+    </script>
+
+</body>
+
+</html>
