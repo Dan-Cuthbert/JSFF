@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>JSFF</title>
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.png"/>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -36,16 +37,25 @@
 	    width = 100%;
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
-		color: red
+	}
+
+	table.rosters {
+		margin-left:auto;
+        margin-right:auto;
+	}
+
+	table.pastChamps {
+		margin-left:auto;
+        margin-right:auto;
 	}
 
 	td, th {
 		border: 1px solid #dddddd;
-		text-align: left;
 		padding-top: 8px;
-		padding-right: 25px;
+		padding-right: 23px;
 		padding-bottom: 8px;
 		padding-left: 8px;
+		text-align: center;
 	}
 
 	tr:nth-child(even) {
@@ -66,12 +76,32 @@
         box-sizing: border-box;
     }
 
-    button.playerSubmit {
+    input[type=number], select {
         width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button.playerSubmit {
+        width: 47%;
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
-        margin: 8px 0;
+        margin: 8px 4px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button.undo {
+        width: 47%;
+        background-color: #c33737;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 4px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -81,10 +111,10 @@
         background-color: #45a049;
     }
 
-    div.playerSubmission {
-        width: 32%;
+    div.rosters {
+        width: 30%;
         float:left;
-        margin: 20px;
+        margin: 15px;
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
@@ -96,11 +126,89 @@
         margin: 20px;
         border-radius: 5px;
         background-color: #f2f2f2;
+        padding: 10px 0px 10px 25px;
+    }
+
+    div.playerSubmission {
+        width: 32%;
+        float:left;
+        margin: 20px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
         padding: 20px;
     }
+
+    div.leagueHistory {
+        background-color: #f2f2f2;
+    }
+
+    section.success {
+        color: #2c3e50;
+        background: #9fd69f;
+    }
+
+    section.auctionBlock {
+        color: #2c3e50;
+        background: #90c5f4;
+    }
+
+    section.champ {
+        color: #2c3e50;
+        background: #90c5f4;
+    }
+
+    section.leagueHistory {
+        color: #2c3e50;
+        background: #f2f2f2;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p.TomEvancho {
+        font-family: arial, sans-serif;
+        font-size: 70px;
+        text-align:center;
+        color:#c33737
+    }
+
+    p.Zero{
+        font-family: arial, sans-serif;
+        font-size: 100px;
+        text-align:center;
+        font-weight:bold;
+        color:#c33737
+    }
+
+    ul.leagueHistory {
+        font-family: arial, sans-serif;
+        font-size: 40px;
+    }
+
+    h3 {
+        font-family: arial, sans-serif;
+        font-size: 50px;
+    }
+
 </style>
 
 <body id="page-top" class="index">
+
+    <audio  id="victory">
+      <source src="/static/sound/VictoryMusic.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="youLikeThat">
+      <source src="/static/sound/YouLikeThat.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="bobRoss">
+      <source src="/static/sound/BobRoss.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -123,13 +231,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="#contact">Auction</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="#portfolio">Rosters</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">Budgets</a>
+                        <a onclick='playVictoryMusic()' href="#champ">Champ</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Players</a>
+                        <a href="#leagueHistory">League History</a>
                     </li>
                 </ul>
             </div>
@@ -138,183 +249,62 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
+    <!-- Spotify -->
+    <!--<iframe src="https://open.spotify.com/embed/user/chaoaj/playlist/6OYL2rfNJj1w6KFlzaMs39" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>-->
+
+    <!-- Auction Block Section -->
+    <section class="auctionBlock" id="contact">
         <div class="container">
-			<div class="row">
+            <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="ex1">Rosters</h2>
+                    <h2 class="ex1">Auction Block</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-				<h1>Team 1</h1>
-                <table id="Roster1">
-					<tr>
-						<th>Player</th>
-						<th>Cost</th>
-						<th>Position</th>
-					</tr>
-				</table>
-            </div>
-            <div class="row">
-				<h1>Team 4</h1>
-                 <table>
-					<tr>
-					<th>Player</th>
-					<th>Cost</th>
-					<th>Position</th>
-					</tr>
-					<tr>
-					<td>Peyton Manning</td>
-					<td>50</td>
-					<td>QB</td>
-					</tr>
-				</table>
-            </div>
-			<div class="row">
-				<h1>Team 7</h1>
-                <table>
-					<tr>
-						<th>Player</th>
-						<th>Cost</th>
-						<th>Position</th>
-					</tr>
-					<tr>
-						<td>Peyton Manning</td>
-						<td>50</td>
-						<td>QB</td>
-					</tr>
-				</table>
-            </div>
-			<div class="row">
-				<h1>Team 10</h1>
-                <table>
-					<tr>
-						<th>Player</th>
-						<th>Cost</th>
-						<th>Position</th>
-					</tr>
-					<tr>
-						<td>Peyton Manning</td>
-						<td>50</td>
-						<td>QB</td>
-					</tr>
-				</table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Budgets Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Budgets</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="Budget">
-                <table id="BudgetTable2">
-                    <tr>
-                        <th>Team</th>
-                        <th>Budget</th>
-                        <th>Max</th>
-                    </tr>
-                    <tr>
-                        <td>Team 1</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 2</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 3</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 4</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 5</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 6</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 7</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 8</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 9</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 10</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 11</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                    <tr>
-                        <td>Team 12</td>
-                        <td>200</td>
-                        <td>180</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Current Player</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="playerSubmission">
+                <div class="playerSubmission" id="playerSubmission">
                     <label for="player">Player</label>
                     <input type="text" id="player" placeholder="Enter Player">
 
                     <label for="cost">Cost</label>
-                    <input type="text" id="cost" placeholder="Enter Cost">
+                    <input type="number" id="cost" value=1 placeholder="Enter Cost">
 
-                    <label for="Team">Team</label>
-                    <input type="text" id="team" placeholder="Enter Team">
+                    <label for="team">Team</label>
+                    <select id="team">
+                        <option value="Dan">Dan</option>
+                        <option value="Steve S">Steve S</option>
+                        <option value="Andrew">Andrew</option>
+                        <option value="Alex">Alex</option>
+                        <option value="Tom E">Tom E</option>
+                        <option value="Bob">Bob</option>
+                        <option value="Christian">Christian</option>
+                        <option value="Tom G">Tom G</option>
+                        <option value="Steve P">Steve P</option>
+                        <option value="Jim">Jim</option>
+                        <option value="Ryan">Ryan</option>
+                        <option value="Eric">Eric</option>
+                    </select>
 
-                <button class="playerSubmit" onclick="getInfo()">Sold!</button>
+                    <label for="position">Position</label>
+                    <select id="position">
+                        <option value="QB">QB</option>
+                        <option value="RB">RB</option>
+                        <option value="WR">WR</option>
+                        <option value="TE">TE</option>
+                        <option value="K">K</option>
+                        <option value="DST">DST</option>
+                    </select>
+
+                <button class="playerSubmit" id="playerSubmit" onclick="getInfo()">Sold!</button>
+                <button class="undo" onclick="undo()">Undo!</button>
                 </div>
                 <div class="AuctionBoard">
-                    <table id="BudgetTable">
+                    <table id="BigBoard">
                         <tr>
                             <th>Team</th>
                             <th>Budget</th>
                             <th>Max</th>
-                            <th># Players</th>
+                            <th>Players Rem.</th>
                             <th>QB</th>
                             <th>RB</th>
                             <th>WR</th>
@@ -323,10 +313,10 @@
                             <th>DST</th>
                         </tr>
                         <tr>
-                            <td>Team 1</td>
+                            <td>Dan</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -335,10 +325,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 2</td>
+                            <td>Steve S</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -347,10 +337,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 3</td>
+                            <td>Andrew</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -359,10 +349,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 4</td>
+                            <td>Alex</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -371,10 +361,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 5</td>
+                            <td>Tom E</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -383,10 +373,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 6</td>
+                            <td>Bob</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -395,10 +385,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 7</td>
+                            <td>Christian</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -407,10 +397,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 8</td>
+                            <td>Tom G</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -419,10 +409,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 9</td>
+                            <td>Steve P</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -431,10 +421,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 10</td>
+                            <td>Jim</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -443,10 +433,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 11</td>
+                            <td>Ryan</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -455,10 +445,10 @@
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Team 12</td>
+                            <td>Eric</td>
                             <td>200</td>
                             <td>187</td>
-                            <td>0</td>
+                            <td>14</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -469,10 +459,266 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <iframe src="https://open.spotify.com/embed/user/chaoaj/playlist/6OYL2rfNJj1w6KFlzaMs39" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    <!-- Portfolio Grid Section -->
+    <section class="success" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Rosters</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="rosters">
+                <div class="row">
+                    <h1>Dan</h1>
+                    <table class="rosters" id="Dan">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Alex</h1>
+                     <table class="rosters" id="Alex">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Christian</h1>
+                    <table class="rosters" id="Christian">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Jim</h1>
+                    <table class="rosters" id="Jim">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="rosters">
+                <div class="row">
+                    <h1>Steve S</h1>
+                    <table class="rosters" id="Steve S">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Tom E</h1>
+                     <table class="rosters" id="Tom E">
+                        <tr>
+                        <th>Player</th>
+                        <th>Cost</th>
+                        <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Tom G</h1>
+                    <table class="rosters" id="Tom G">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Ryan</h1>
+                    <table class="rosters" id="Ryan">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="rosters">
+                <div class="row">
+                    <h1>Andrew</h1>
+                    <table class="rosters" id="Andrew">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Bob</h1>
+                     <table class="rosters" id="Bob">
+                        <tr>
+                        <th>Player</th>
+                        <th>Cost</th>
+                        <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Steve P</h1>
+                    <table class="rosters" id="Steve P">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <h1>Eric</h1>
+                    <table class="rosters" id="Eric">
+                        <tr>
+                            <th>Player</th>
+                            <th>Cost</th>
+                            <th>Position</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="champ" id="champ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h2>The Champ</h2>
+                    <hr class="star-primary">
+                </div>
+                 <div class="col-md-6 text-center">
+                    <h2>The Chump</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="champ">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <img src="/static/img/Crown.png" height="100" width="125">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img src="/static/img/JokerHat.png" height="100" width="150">
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <img style="border:5px groove gold;" src="/static/img/ReigningChamp.jpg" height="300" width="300">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img style="border:5px groove gold;" src="/static/img/ReigningChump.png" height="300" width="300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leagueHistory" id="leagueHistory">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>It's the League's 10th anniversary</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <table class="pastChamps">
+                <tr>
+                    <th>Year</th>
+                    <th>Champ</th>
+                    <th>Runner-Up</th>
+                </tr>
+                <tr>
+                    <td>2008</td>
+                    <td>america</td>
+                    <td>The Bernard Pollards</td>
+                </tr>
+                <tr>
+                    <td>2009</td>
+                    <td>Sex Bomb</td>
+                    <td>Stump the Schaub</td>
+                </tr>
+                <tr>
+                    <td>2010</td>
+                    <td>Maurice Jones Crew</td>
+                    <td>Rockets</td>
+                </tr>
+                <tr>
+                    <td>2011</td>
+                    <td>Con 2</td>
+                    <td>The Brothers Johnson</td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td>Los Pollos Hermanos</td>
+                    <td>Jets</td>
+                </tr>
+                <tr>
+                    <td>2013</td>
+                    <td>Los Pollos Hermanos</td>
+                    <td>Coples Therapy</td>
+                </tr>
+                <tr>
+                    <td>2014</td>
+                    <td>The New York Grimes</td>
+                    <td>Just End The Season</td>
+                </tr>
+                <tr>
+                    <td>2015</td>
+                    <td>Muffin Lords</td>
+                    <td>J.O.B. Squad</td>
+                </tr>
+                <tr>
+                    <td>2016</td>
+                    <td>Bob The Great</td>
+                    <td>The New York Grimes</td>
+                </tr>
+                <tr>
+                    <td>2017</td>
+                    <td>Curse of the Rexbino</td>
+                    <td>Ballhogs2</td>
+                </tr>
+            </table>
+            <div class="row">
+                <div class="leagueHistory">
+                    <h3>Since 2008...</h3>
+                    <ul class="leagueHistory">
+                        <li>Twitter was created</li>
+                        <li>13 of the 14 iPhone models have been released</li>
+                        <li>Blockbuster have closed about 8,000 stores</li>
+                        <li>Google Chrome was introduced</li>
+                    </ul>
+                    <h3>But most importantly...</h3>
+                    <p class="TomEvancho">Tom Evancho has won </p>
+                    <p class="Zero">0 </p>
+                    <p class="TomEvancho">JSFFL Championships</p>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <img style="border:5px groove gold;" src="/static/img/TomEvancho.png" height="400" width="400">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -508,32 +754,67 @@
         var player = document.getElementById("player").value;
         var cost = document.getElementById("cost").value;
         var team = document.getElementById("team").value;
-        updateBudget(cost, team);
-        addToRoster(cost, team, player);
-        clearPlayerInfo();
+        var position = document.getElementById("position").value;
+        if(player != "" && cost != ""){
+            updateBudget(cost, team, player, position);
+        } else {
+            alert("Missing player or cost")
+        }
     }
 
-    function updateBudget(cost, team) {
-        var MyRows = $('table#BudgetTable').find('tr');
+    function undo() {
+        var player = document.getElementById("player").value;
+        var team = document.getElementById("team").value;
+        var costAndPos = removePlayerFromTeam(team,player);
+        removePlayerFromBigBoard(team,costAndPos[0],costAndPos[1]);
+        resetInfo();
+    }
+
+    function updateBudget(cost, team, player, position) {
+        var MyRows = $('table#BigBoard').find('tr');
         for (var i = 0; i < MyRows.length; i++) {
             var teamName = $(MyRows[i]).find('td:eq(0)').html();
             if(teamName == team){
-                var x = document.getElementById("BudgetTable").rows[i].cells;
-                x[1].innerHTML = x[1].innerHTML - cost;
-                x[3].innerHTML = parseInt(x[3].innerHTML) + 1;
-                x[2].innerHTML = parseInt(x[1].innerHTML) - (maxPlayers - parseInt(x[3].innerHTML)) + 1;
+                var x = document.getElementById("BigBoard").rows[i].cells;
+
+                if(cost > parseInt(x[2].innerHTML) || parseInt(x[1].innerHTML) == 0){
+                    alert("Max Budget Exceeded!");
+                } else {
+                    x[1].innerHTML = x[1].innerHTML - cost;
+                    x[3].innerHTML = parseInt(x[3].innerHTML) - 1;
+                    x[2].innerHTML = parseInt(x[1].innerHTML) - (parseInt(x[3].innerHTML)) + 1;
+                    if(position == "QB"){
+                        x[4].innerHTML = parseInt(x[4].innerHTML) + 1;
+                    } else if(position == "RB"){
+                        x[5].innerHTML = parseInt(x[5].innerHTML) + 1;
+                    } else if(position == "WR"){
+                        x[6].innerHTML = parseInt(x[6].innerHTML) + 1;
+                    } else if(position == "TE"){
+                        x[7].innerHTML = parseInt(x[7].innerHTML) + 1;
+                    } else if(position == "K"){
+                        x[8].innerHTML = parseInt(x[8].innerHTML) + 1;
+                    } else{
+                        x[9].innerHTML = parseInt(x[9].innerHTML) + 1;
+                    }
+                    addToRoster(cost, team, player, position);
+                    resetInfo();
+                    if(team == "Dan"){
+                        youLikeThat();
+                    } else if(team == "Bob"){
+                        bobRoss();
+                    }
+                }
             }
         }
     }
 
-    function clearPlayerInfo(){
+    function resetInfo(){
         var player = document.getElementById("player").value = "";
-        var cost = document.getElementById("cost").value = "";
-        var team = document.getElementById("team").value = "";
+        var cost = document.getElementById("cost").value = 1;
     }
 
-    function addToRoster(cost, team, player){
-        var table = document.getElementById("Roster1");
+    function addToRoster(cost, team, player, position){
+        var table = document.getElementById(team);
 
         var row = table.insertRow(-1);
 
@@ -543,8 +824,86 @@
 
         cell1.innerHTML = player;
         cell2.innerHTML = cost;
-        cell3.innerHTML = "QB";
+        cell3.innerHTML = position;
     }
+
+    function removePlayerFromTeam(team, player){
+        var table = document.getElementById(team);
+        for (var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i].cells;
+            if(row[0].innerHTML == player){
+                var cost = row[1].innerHTML;
+                var pos = row[2].innerHTML;
+                table.deleteRow(i);
+                return [cost, pos];
+            }
+        }
+    }
+
+    function removePlayerFromBigBoard(team, cost, position){
+        var MyRows = $('table#BigBoard').find('tr');
+        for (var i = 0; i < MyRows.length; i++) {
+            var teamName = $(MyRows[i]).find('td:eq(0)').html();
+            if(teamName == team){
+                var x = document.getElementById("BigBoard").rows[i].cells;
+
+                x[1].innerHTML = parseInt(x[1].innerHTML) + parseInt(cost);
+                x[3].innerHTML = parseInt(x[3].innerHTML) - 1;
+                x[2].innerHTML = parseInt(x[1].innerHTML) - (maxPlayers - parseInt(x[3].innerHTML)) + 1;
+                if(position == "QB"){
+                    x[4].innerHTML = parseInt(x[4].innerHTML) - 1;
+                } else if(position == "RB"){
+                    x[5].innerHTML = parseInt(x[5].innerHTML) - 1;
+                } else if(position == "WR"){
+                    x[6].innerHTML = parseInt(x[6].innerHTML) - 1;
+                } else if(position == "TE"){
+                    x[7].innerHTML = parseInt(x[7].innerHTML) - 1;
+                } else if(position == "K"){
+                    x[8].innerHTML = parseInt(x[8].innerHTML) - 1;
+                } else{
+                    x[9].innerHTML = parseInt(x[9].innerHTML) - 1;
+                }
+            }
+        }
+    }
+
+    function playVictoryMusic() {
+        var victoryMusic = document.getElementById("victory");
+        victoryMusic.volume = 0.1;
+        victoryMusic.play();
+    }
+
+    function youLikeThat() {
+        var youLikeThat = document.getElementById("youLikeThat");
+        youLikeThat.volume = 0.5
+        youLikeThat.play();
+    }
+
+    function bobRoss() {
+        var bobRoss = document.getElementById("bobRoss");
+        bobRoss.volume = 1.0
+        bobRoss.play();
+    }
+
+    var input = document.getElementById("playerSubmission");
+    var input2 = document.getElementById("team");
+    var input3 = document.getElementById("position");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            getInfo();
+            var player = document.getElementById("player");
+            player.focus();
+        }
+    });
+    input2.addEventListener("change", function(event) {
+        var player = document.getElementById("player");
+        player.focus();
+    });
+    input3.addEventListener("change", function(event) {
+        var player = document.getElementById("player");
+        player.focus();
+    });
     </script>
 
 </body>
