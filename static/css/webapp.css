@@ -1,0 +1,161 @@
+table {
+    width = 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+table.rosters {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+table.pastChamps {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding-top: 8px;
+    padding-right: 23px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+h2.ex1 {
+    margin-top: 2cm;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button.playerSubmit {
+    width: 47%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button.undo {
+    width: 47%;
+    background-color: #c33737;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div.rosters {
+    width: 30%;
+    float:left;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+div.AuctionBoard {
+    width: 61%;
+    float:left;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px 0px 10px 25px;
+}
+
+div.playerSubmission {
+    width: 32%;
+    float:left;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+div.leagueHistory {
+    background-color: #f2f2f2;
+}
+
+section.success {
+    color: #2c3e50;
+    background: #9fd69f;
+}
+
+section.auctionBlock {
+    color: #2c3e50;
+    background: #90c5f4;
+}
+
+section.champ {
+    color: #2c3e50;
+    background: #90c5f4;
+}
+
+section.leagueHistory {
+    color: #2c3e50;
+    background: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+p.TomEvancho {
+    font-family: arial, sans-serif;
+    font-size: 70px;
+    text-align:center;
+    color:#c33737
+}
+
+p.Zero{
+    font-family: arial, sans-serif;
+    font-size: 100px;
+    text-align:center;
+    font-weight:bold;
+    color:#c33737
+}
+
+p.auctioneer {
+    font-weight: bold;
+}
+
+ul.leagueHistory {
+    font-family: arial, sans-serif;
+    font-size: 40px;
+}
+
+h3 {
+    font-family: arial, sans-serif;
+    font-size: 50px;
+}
