@@ -52,9 +52,9 @@ function updateBudget(cost, team, player, position) {
                 addToRoster(cost, team, player, position);
                 resetInfo();
                 whosBringingOut();
-                if(team == "Dan"){
+                if(team == "Dan" && x[3].innerHTML == 13){
                     youLikeThat();
-                } else if(team == "Bob"){
+                } else if(team == "Bob" && x[3].innerHTML == 13){
                     bobRoss();
                 }
             }
