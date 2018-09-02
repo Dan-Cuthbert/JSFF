@@ -30,6 +30,8 @@ function updateBudget(cost, team, player, position) {
 
             if(cost > parseInt(x[2].innerHTML) || parseInt(x[1].innerHTML) == 0){
                 alert("Max Budget Exceeded!");
+            } else if(x[3].innerHTML == 0){
+                alert("No players left on roster!");
             } else {
                 x[1].innerHTML = x[1].innerHTML - cost;
                 x[3].innerHTML = parseInt(x[3].innerHTML) - 1;
