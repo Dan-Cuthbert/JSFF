@@ -148,6 +148,8 @@ p.Zero{
 
 p.auctioneer {
     font-weight: bold;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 ul.leagueHistory {

@@ -1,4 +1,5 @@
 maxPlayers = 14;
+auctionPosition = 0;
 
 function getInfo() {
     var player = document.getElementById("player").value;
@@ -8,7 +9,7 @@ function getInfo() {
     if(player != "" && cost != ""){
         updateBudget(cost, team, player, position);
     } else {
-        alert("Missing player or cost")
+        alert("Missing player or cost");
     }
 }
 
@@ -48,6 +49,7 @@ function updateBudget(cost, team, player, position) {
                 }
                 addToRoster(cost, team, player, position);
                 resetInfo();
+                whosBringingOut();
                 if(team == "Dan"){
                     youLikeThat();
                 } else if(team == "Bob"){
@@ -117,6 +119,18 @@ function removePlayerFromBigBoard(team, cost, position){
     }
 }
 
+function whosBringingOut() {
+    do {
+        if(auctionPosition < 11){
+            auctionPosition++;
+        } else {
+            auctionPosition = 0;
+        }
+    } while(document.getElementById(draftOrder[auctionPosition]).rows.length >= 14);
+
+    document.getElementById("auctioneer").innerHTML = draftOrder[auctionPosition];
+}
+
 function playVictoryMusic() {
     var victoryMusic = document.getElementById("victory");
     victoryMusic.volume = 0.1;
@@ -134,6 +148,20 @@ function bobRoss() {
     bobRoss.volume = 1.0
     bobRoss.play();
 }
+
+var draftOrder = {};
+draftOrder[0] = "Dan";
+draftOrder[1] = "Steve S";
+draftOrder[2] = "Andrew";
+draftOrder[3] = "Alex";
+draftOrder[4] = "Tom E";
+draftOrder[5] = "Bob";
+draftOrder[6] = "Christian";
+draftOrder[7] = "Tom G";
+draftOrder[8] = "Steve P";
+draftOrder[9] = "Jim";
+draftOrder[10] = "Ryan";
+draftOrder[11] = "Eric";
 
 var input = document.getElementById("playerSubmission");
 var input2 = document.getElementById("team");
