@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b49c08cb-aa6d-429a-84ee-d3c8ace386f5" name="Default" comment="Audio only happens on first pick">
+    <list default="true" id="b49c08cb-aa6d-429a-84ee-d3c8ace386f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/static/js/webapp.js" afterPath="$PROJECT_DIR$/static/js/webapp.js" />
+      <change beforePath="$PROJECT_DIR$/static/css/webapp.css" afterPath="$PROJECT_DIR$/static/css/webapp.css" />
+      <change beforePath="$PROJECT_DIR$/static/img/TomEvancho.PNG" afterPath="$PROJECT_DIR$/static/img/TheLegend.PNG" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4417">
-              <caret line="119" column="35" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="35" />
+            <state relative-caret-position="290">
+              <caret line="537" column="92" lean-forward="false" selection-start-line="537" selection-start-column="92" selection-end-line="537" selection-end-column="92" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -41,14 +43,14 @@
       <file leaf-file-name="webapp.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/webapp.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="129" column="4" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
+            <state relative-caret-position="251">
+              <caret line="133" column="12" lean-forward="false" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webapp.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="webapp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/webapp.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -69,7 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sound</find>
       <find>contac</find>
       <find>contact</find>
       <find>portfolio</find>
@@ -86,7 +87,6 @@
       <find>getinfo</find>
       <find>tom evan</find>
       <find>evan</find>
-      <find>tomevan</find>
       <find>whosBringingOut</find>
       <find>whosbringingout</find>
       <find>auctioneer</find>
@@ -99,6 +99,8 @@
       <find>max b</find>
       <find>max budget</find>
       <find>undo</find>
+      <find>TomEvancho</find>
+      <find>tomevan</find>
     </findStrings>
     <replaceStrings>
       <replace>#be1919</replace>
@@ -108,6 +110,7 @@
       <replace>audio</replace>
       <replace>draftOrder</replace>
       <replace>rosters</replace>
+      <replace>TheLegend</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -122,10 +125,10 @@
         <option value="$PROJECT_DIR$/static/css/freelancer.css" />
         <option value="$PROJECT_DIR$/static/less/freelancer.less" />
         <option value="$PROJECT_DIR$/templates/backup.html" />
-        <option value="$PROJECT_DIR$/static/css/webapp.css" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/js/webapp.js" />
+        <option value="$PROJECT_DIR$/static/css/webapp.css" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
       </list>
     </option>
   </component>
@@ -160,6 +163,12 @@
               <item name="JSFF" type="b2602c69:ProjectViewProjectNode" />
               <item name="JSFF" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JSFF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JSFF" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JSFF" type="b2602c69:ProjectViewProjectNode" />
@@ -266,12 +275,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535930650976</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed logic for undo, added shortcut (F8)">
+      <created>1535935776743</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1535935776743</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29586425" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
@@ -279,7 +294,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29586425" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24114583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24114583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -309,7 +324,8 @@
     </ignored-roots>
     <MESSAGE value="Auction Order Introduced" />
     <MESSAGE value="Audio only happens on first pick" />
-    <option name="LAST_COMMIT_MESSAGE" value="Audio only happens on first pick" />
+    <MESSAGE value="Fixed logic for undo, added shortcut (F8)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed logic for undo, added shortcut (F8)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -683,30 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4417">
-          <caret line="119" column="35" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/webapp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="129" column="4" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -716,6 +712,26 @@
         <state relative-caret-position="345">
           <caret line="177" column="15" lean-forward="true" selection-start-line="177" selection-start-column="15" selection-end-line="177" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/webapp.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="133" column="12" lean-forward="false" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="537" column="92" lean-forward="false" selection-start-line="537" selection-start-column="92" selection-end-line="537" selection-end-column="92" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
