@@ -13,14 +13,6 @@ function getInfo() {
     }
 }
 
-function undo() {
-    var player = document.getElementById("player").value;
-    var team = document.getElementById("team").value;
-    var costAndPos = removePlayerFromTeam(team,player);
-    removePlayerFromBigBoard(team,costAndPos[0],costAndPos[1]);
-    resetInfo();
-}
-
 function updateBudget(cost, team, player, position) {
     var MyRows = $('table#BigBoard').find('tr');
     for (var i = 0; i < MyRows.length; i++) {
@@ -81,6 +73,14 @@ function addToRoster(cost, team, player, position){
     cell3.innerHTML = position;
 }
 
+function undo() {
+    var player = document.getElementById("player").value;
+    var team = document.getElementById("team").value;
+    var costAndPos = removePlayerFromTeam(team,player);
+    removePlayerFromBigBoard(team,costAndPos[0],costAndPos[1]);
+    resetInfo();
+}
+
 function removePlayerFromTeam(team, player){
     var table = document.getElementById(team);
     for (var i = 1; i < table.rows.length; i++) {
@@ -102,8 +102,8 @@ function removePlayerFromBigBoard(team, cost, position){
             var x = document.getElementById("BigBoard").rows[i].cells;
 
             x[1].innerHTML = parseInt(x[1].innerHTML) + parseInt(cost);
-            x[3].innerHTML = parseInt(x[3].innerHTML) - 1;
-            x[2].innerHTML = parseInt(x[1].innerHTML) - (maxPlayers - parseInt(x[3].innerHTML)) + 1;
+            x[3].innerHTML = parseInt(x[3].innerHTML) + 1;
+            x[2].innerHTML = parseInt(x[1].innerHTML) - parseInt(x[3].innerHTML) + 1;
             if(position == "QB"){
                 x[4].innerHTML = parseInt(x[4].innerHTML) - 1;
             } else if(position == "RB"){
@@ -172,6 +172,10 @@ input.addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode === 13) {
         getInfo();
+        var player = document.getElementById("player");
+        player.focus();
+    } else if (event.keyCode == 119) {
+        undo();
         var player = document.getElementById("player");
         player.focus();
     }
