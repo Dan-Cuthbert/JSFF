@@ -9,21 +9,28 @@ weeks = list(range(1, 14))
 class Pool:
     _pool_types = set(["standard", "side"])
 
-    def __init__(self, pool, payout, pool_type, week, no_winners):
+    def __init__(self, pool, payout, pool_type, week, no_winners, label):
         self.pool = pool
         self.payout = payout
         self.pool_type = pool_type
         self.week = week
         self.no_winners = no_winners
         self.pool_type = pool_type
+        self.label = pool.replace('_',' ').title()
 
 # Define pools
 pools = []
 
 # Championships
-pools.append(Pool("League Winner", total_pot*8/12, "standard", 16, 1))
-pools.append(Pool("League Runner-Up", total_pot*3/12, "standard", 16, 1))
-pools.append(Pool("League Third Place", total_pot*1/12, "standard", 16, 1))
+pools.append(Pool("league_winner", total_pot*8/12, "main", 16, 1))
+def league_winner_payout(pool):
+    league_winner = sleeper.playoff_results(sleeper.league_id)
+
+    return league_w
+
+
+pools.append(Pool("league_runnerup", total_pot*3/12, "main", 16, 1))
+pools.append(Pool("league_third", total_pot*1/12, "main", 16, 1))
 
 # Full Regular Season
 pools.append(Pool("Regular Season 1st Place", round(total_side_pot*.08,2), "side", 13, 1))

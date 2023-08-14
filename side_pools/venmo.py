@@ -1,9 +1,9 @@
 from venmo_api import Client
 from credentials import getToken
+import config
 
 # Get 1Password uuid for Venmo API credential. Get access token stored in 1Password and connect to Venmo client
-venmo_uuid="fem2trbtqnwjpyn2cmqqhl5gju"
-venmo_access_token = getToken(venmo_uuid)
+venmo_access_token = getToken(config.venmo_uuid)
 venmo = Client(access_token=venmo_access_token)
 
 # Get user ID for given username
