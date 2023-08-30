@@ -1,2 +1,4 @@
 side_pools/__pycache__/*
 side_pools/config.py
+draft/
+.DS_Store

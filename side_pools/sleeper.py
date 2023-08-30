@@ -1,16 +1,22 @@
 from sleeperpy import Leagues
 from sorcery import dict_of
-import main_pools
 import pandas as pd
 
 # Define league variables
 # Ryan's user ID
 user_id = '457014438138998784'
-season_id = '2022'
-league_id = Leagues.get_all_leagues(user_id, 'nfl', season_id)[0]['league_id']
 
+state = Leagues.get_state('nfl')
+if state['season_type'] == 'regular':
+    week = state['week'] - 1
+else:
+    week = 1
 
-def playoff_results(league_id):
+season = state['previous_season']
+league_id = Leagues.get_all_leagues(user_id, 'nfl', season)[0]['league_id']
+rosters = Leagues.get_rosters(league_id)
+
+def get_playoff_results(league_id):
     playoffs = Leagues.get_winners_playoff_bracket(league_id)
     league_winner = next(
         (match for match in playoffs if match['r'] == 3 and match['m'] == 6), None)['w']
@@ -20,7 +26,6 @@ def playoff_results(league_id):
         (match for match in playoffs if match['r'] == 3 and match['m'] == 7), None)['w']
     main_pools = dict_of(league_winner, league_runnerup, league_third)
     return main_pools
-
 
 def team_info(league_id):
     user_data = Leagues.get_users(league_id)
@@ -51,9 +56,7 @@ def team_info(league_id):
         users.append(dict)
     return users
 
-
+rosters = team_info(league_id)
 team_count = Leagues.get_league(league_id)["total_rosters"]
 side_pool_optout = ['ConePollos']
 side_pool_count = team_count - len(side_pool_optout)
-
-print(team_info(league_id))
