@@ -8,11 +8,11 @@ user_id = '457014438138998784'
 
 state = Leagues.get_state('nfl')
 if state['season_type'] == 'regular':
-    week = state['week'] - 1
+    week = state['week']-1
 else:
     week = 1
 
-season = state['previous_season']
+season = state['season']
 league_id = Leagues.get_all_leagues(user_id, 'nfl', season)[0]['league_id']
 rosters = Leagues.get_rosters(league_id)
 
