@@ -1,6 +1,6 @@
 import sleeper
-import statistics
-import pandas
+from venmo import venmo_ids
+
 
 # Set global variables
 buy_in = 100.00
@@ -9,11 +9,10 @@ total_pot = buy_in*sleeper.team_count
 total_side_pot = side_buy_in*sleeper.side_pool_count
 pool_winners = []
 
-
 # Define weeks
 regular_season = list(range(1, 15))
 opening_week = regular_season[0]
-rivalry_week = statistics.median(regular_season)
+rivalry_week = 8
 last_week = regular_season[-1]
 playoffs = list(range(15,18))
 championship_week = playoffs[-1]
@@ -81,6 +80,9 @@ def createPools():
     plug['payout'] = total_side_pot-sum
     sum += plug['payout']
 
+    #write = csv.writer(pool_list)
+
+
     return pool_list
 
 def calculatePools(pool_list):
@@ -104,13 +106,14 @@ def calculatePools(pool_list):
         matchup_winners.append(matchup_dict)
     weekly_winners['highest_score_of_the_week'] = weekly_high_score
     weekly_winners['highest_scoring_margin_of_the_week'] = max(matchup_winners, key=lambda x:x['matchup_margin'])['matchup_winner']
+    weekly_winners['regular_season_most_points'] = max(sleeper.rosters, key=lambda x:x['total_points_for'])['roster_id']
 
     # Special Weeks
     if sleeper.week == opening_week:
-        ls = []
         for w in matchup_winners:
-            ls.append(w['matchup_winner'])
-        weekly_winners['each_winner_of_opening_week'] = ls
+            #ls.append(w['matchup_winner'])
+            matchup_id = w['matchup_id']
+            weekly_winners['each_winner_of_opening_week:'+str(matchup_id)] = w['matchup_winner']
     elif sleeper.week == rivalry_week:
         ls = []
         for w in matchup_winners:
@@ -125,10 +128,9 @@ def calculatePools(pool_list):
         pass
 
     if sleeper.week == last_week:
-        pass
         # Full Regular Season
-        ## weekly_winners['regular_season_first_place'] =  
-        ## weekly_winners['regular_season_most_points'] = 
+        weekly_winners['regular_season_first_place'] = max(sleeper.rosters, key=lambda x:x['total_wins'])['roster_id']
+        weekly_winners['regular_season_most_points'] = max(sleeper.rosters, key=lambda x:x['total_points_for'])['roster_id']
         ## weekly_winners[regular_season_highest_scoring_player'] = 
         ## weekly_winners[regular_season_highest_scoring_player'] = 
 
@@ -155,10 +157,30 @@ def calculatePools(pool_list):
 
     return pool_winners
 
-pool_list = createPools()
-pool_df = pandas.DataFrame(pool_list)
-print(pool_df['payout'])
-
-weekly_winners = calculatePools(pool_list)
-print(weekly_winners)
-
+def payouts(pool_list,weekly_winners):
+    payout_list = []
+    for p in pool_list:
+            if p['week']  == sleeper.week:
+                for key, value in weekly_winners[0].items():
+                    if p['pool'] == key.split(':')[0]:
+                        payouts = {}
+                        username = [x for x in sleeper.rosters if x['roster_id'] == value][0]['username']
+                        if p['pool_type']  == 'side':
+                            if username not in sleeper.side_pool_optout:
+                                try:
+                                    payouts['amount'] = p['payout']
+                                    payouts['pool'] = p['pool']
+                                    payouts['week'] = p['week']
+                                    payouts['venmo_id'] = venmo_ids[username]
+                                    payout_list.append(payouts)
+                                except:
+                                    print(username + ' not found.')
+                        else:
+                            try:
+                                payouts['amount'] = p['payout']
+                                payouts['pool'] = p['pool']
+                                payouts['venmo_id'] = venmo_ids[username]
+                                payout_list.append(payouts)
+                            except:
+                                print(username + ' not found.')
+    return payout_list

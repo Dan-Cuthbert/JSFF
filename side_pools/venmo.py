@@ -8,20 +8,21 @@ venmo = Client(access_token=venmo_access_token)
 
 # Enter all users' venmo IDs
 venmo_ids = {'rgillies28':'ryan-gillies',
-             'tomgill':'',
+             'tomgill':'thomas-gillies-4',
              'dcuth':'dan-cuthbert',
              'aconstant10':'andrew-constant',
              'BobTheChamp2016':'b-ross',
              'egillies21':'eric-gillies',
              'tevancho':'tom-evancho',
-             'tflora':'',
+             'tflora':'tflora',
              'ChristianSwagner':'christianwagner',
              'S_Shaffer':'Stephen-Shaffer-20',
              'ConePollos':'alex-cohen-21',
              'bengalball':'Leanne-Evancho'
              }
 
-# Get user ID for given username
 def payout(username,payout,pool):
     recipient = venmo.user.get_user_by_username(venmo_ids[username]).id
     venmo.payment.send_money(amount=payout,note="JSFF - "+pool,target_user_id=recipient)
+    print('Payment successfully sent:'+username+'-'+payout+'-'+pool)
+    return 
