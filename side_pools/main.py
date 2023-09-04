@@ -17,7 +17,7 @@ def main():
     if confirmation == 'y':
         df.to_sql(name='payouts', con=engine, if_exists='append')
         for p in payout_list:
-            venmo.payout(p['username'],p['payout'],p['pool']+':week'+p['week'])
+            venmo.payout(p['username'],p['payout'],p['pool']+':week'+str(p['week']))
         print('Hooray')
     else:
         exit()
