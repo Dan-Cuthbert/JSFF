@@ -26,7 +26,6 @@ class Pool:
         self.pool_type = pool_type
         self.week = week
         self.no_winners = no_winners
-        self.pool_type = pool_type
         self.label = pool.replace('_',' ').title()
 
 # Define properties of all pools
@@ -92,7 +91,11 @@ def calculatePools(pool_list):
     matchups = sleeper.Leagues.get_matchups(sleeper.league_id, sleeper.week)
     matchup_list = [1,2,3,4,5,6]
     matchup_winners = []
-    weekly_high_score = max(matchups, key=lambda x:x['points'])['roster_id']
+
+    # Hardcoded to remove ConePollos from calc - NEED TO MAKE DYNAMIC!!
+    matchups_adj = [d for d in matchups if d.get('roster_id') != 11]
+    weekly_high_score = max(matchups_adj, key=lambda x:x['points'])['roster_id']
+
     for l in matchup_list:
         matchup = [x for x in matchups if x['matchup_id'] == l]
         matchup_winner = max(matchup, key=lambda x:x['points'])
@@ -170,6 +173,7 @@ def payouts(pool_list,weekly_winners):
                                 try:
                                     payouts['amount'] = p['payout']
                                     payouts['pool'] = p['pool']
+                                    payouts['label'] = p['label']
                                     payouts['week'] = p['week']
                                     payouts['venmo_id'] = venmo_ids[username]
                                     payout_list.append(payouts)
