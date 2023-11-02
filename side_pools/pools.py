@@ -62,11 +62,11 @@ def createPools():
     for week in regular_season:
         pool_list.append(Pool('highest_score_of_the_week',round(total_side_pot*.0077,0),'side',week,1).__dict__)
         pool_list.append(Pool('highest_scoring_margin_of_the_week',round(total_side_pot*.0077,0),'side',week,1).__dict__)
+        pool_list.append(Pool('highest_scoring_player_of_the_week',round(total_side_pot*.0034,0),'side',week,1).__dict__)
 
     # Props
     pool_list.append(Pool('most_reacted_to_post_in_league_chat',round(total_side_pot*.02,0),'side',13,1).__dict__)
     pool_list.append(Pool('best_team_name',round(total_side_pot*.02,0),'side',13,1).__dict__)
-    pool_list.append(Pool('Most_rejected_received_trade_offers',round(total_side_pot*.02),'side',13,1).__dict__)
     pool_list.append(Pool('TBD',round(total_side_pot*.02,0),'side',13,1).__dict__)
     pool_list.append(Pool('TBD',round(total_side_pot*.02,0),'side',13,1).__dict__)
 
@@ -78,9 +78,6 @@ def createPools():
     plug = [x for x in pool_list if x['pool'] == 'regular_season_first_place'][0]
     plug['payout'] = total_side_pot-sum
     sum += plug['payout']
-
-    #write = csv.writer(pool_list)
-
 
     return pool_list
 
@@ -109,24 +106,24 @@ def calculatePools(pool_list):
         matchup_winners.append(matchup_dict)
     weekly_winners['highest_score_of_the_week'] = weekly_high_score
     weekly_winners['highest_scoring_margin_of_the_week'] = max(matchup_winners, key=lambda x:x['matchup_margin'])['matchup_winner']
-    weekly_winners['regular_season_most_points'] = max(sleeper.rosters, key=lambda x:x['total_points_for'])['roster_id']
+    weekly_winners['highest_scoring_player_of_the_week'] = int(input('Enter roster id with highest scoring player of week: '))
+
 
     # Special Weeks
     if sleeper.week == opening_week:
         for w in matchup_winners:
-            #ls.append(w['matchup_winner'])
             matchup_id = w['matchup_id']
             weekly_winners['each_winner_of_opening_week:'+str(matchup_id)] = w['matchup_winner']
     elif sleeper.week == rivalry_week:
-        ls = []
         for w in matchup_winners:
-            ls.append(w['matchup_winner'])
-        weekly_winners['each_winner_of_rivalry_week'] = ls
+            #ls.append(w['matchup_winner'])
+            matchup_id = w['matchup_id']
+            weekly_winners['each_winner_of_rivalry_week:'+str(matchup_id)] = w['matchup_winner']
     elif sleeper.week == last_week:
-        ls = []
         for w in matchup_winners:
-            ls.append(w['matchup_winner'])
-        weekly_winners['each_winner_of_last_week'] = ls
+            #ls.append(w['matchup_winner'])
+            matchup_id = w['matchup_id']
+            weekly_winners['each_winner_of_last_week:'+str(matchup_id)] = w['matchup_winner']
     else:
         pass
 
