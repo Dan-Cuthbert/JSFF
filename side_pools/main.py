@@ -7,6 +7,8 @@ import sleeper
 engine = sqlalchemy.create_engine('postgresql://retool:om9EQK8HsJfh@ep-icy-salad-54868721.us-west-2.retooldb.com/retool?sslmode=require')                
 
 def main():
+    for r in sleeper.rosters:
+        print(r['username']+' : '+str(r['roster_id']))
     pool_list = pools.createPools()
     weekly_winners = pools.calculatePools(pool_list)
     payout_list = pools.payouts(pool_list,weekly_winners)
