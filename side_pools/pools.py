@@ -94,7 +94,7 @@ def calculatePools(pool_list):
     weekly_high_score = max(matchups_adj, key=lambda x:x['points'])['roster_id']
 
     for l in matchup_list:
-        matchup = [x for x in matchups if x['matchup_id'] == l]
+        matchup = [x for x in matchups_adj if x['matchup_id'] == l]
         matchup_winner = max(matchup, key=lambda x:x['points'])
         matchup_loser =  min(matchup, key=lambda x:x['points'])
         matchup_margin = matchup_winner['points'] - matchup_loser['points']
